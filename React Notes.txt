@@ -1,1 +1,55 @@
 React Notes :
+
+Concurrency is a foundational update to React’s rendering mechanism. 
+Concurrency allows React to interrupt rendering.
+
+React 18 introduces the foundation of concurrent rendering and 
+new features such as suspense, streaming server rendering, and 
+transitions are powered by concurrent rendering.
+
+
+1) Batching  
+ 
+ React re render at end
+ if function (){
+ setstate()
+ setrof()
+ 
+ re-render here,React handlke it autmoatically but if in any case you need 
+  ,you can use this flushSync
+ }
+ 
+ 2)Transitions
+ Transitions can be used to mark UI updates that do not need urgent resources for updating.
+ 
+ import { startTransition } from 'react';
+
+// Urgent: Show what was typed
+setInputValue(input);
+
+// Mark any non-urgent state updates inside as transitions
+startTransition(() => {
+  // Transition: Show the results
+  setSearchQuery(input);
+});
+
+
+Suspense:
+
+we can use ,if any componenet take lonhger time to load so we can use 
+this while other application will be load and working and when it will become
+ready so you can intereact with it .
+
+
+
+Strict State :
+
+Strict mode in React 18 will simulate mounting, 
+unmounting, and re-mounting the component with a 
+previous state. This sets the ground for reusable 
+state in the future where React can immediately mount a previous 
+screen by remounting trees using the same component state before 
+unmounting.
+
+Strict mode will ensure components are resilient to effects being mounted and 
+unmounted multiple times.
